@@ -1,3 +1,7 @@
+html{
+  box-sizing: border-box;
+}
+
 body {
     font-size: 16px;
     font-family: 'Oxygen', sans-serif;
@@ -16,8 +20,8 @@ body {
   }
 
   .container{
-      margin: 0;
-      position: relative;
+     
+      
   }
 
 
@@ -59,7 +63,7 @@ body {
     text-align: center;
   }
   #nav-list a:hover {
-    background: #E7E7E7;
+    background: #050505;
   }
   #nav-list a span {
     font-size: 1.8em;
@@ -72,7 +76,16 @@ body {
     clear: both;
     margin-top: -30px;
   }
+
+  
   /* END HEADER */
+
+  /*BODY*/
+  .main{
+    background-color: #458491;
+    color:#ffffff;
+    
+  }
 
   /********** Large devices only **********/
 @media (min-width: 1200px) {
