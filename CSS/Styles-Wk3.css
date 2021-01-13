@@ -78,6 +78,10 @@ body {
     margin-top: -30px;
   }
 
+
+  ul.nav li a {
+    display: block;
+  }
   
   /* END HEADER */
 
