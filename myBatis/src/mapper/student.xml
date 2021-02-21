@@ -1,0 +1,69 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace = "Student">
+
+	<!-- INSERT:  -->
+   <insert id = "insert" parameterType = "StudentInsert">
+      INSERT INTO STUDENT (NAME, BRANCH, PERCENTAGE, PHONE, EMAIL ) VALUES (#{name}, #{branch}, #{percentage}, #{phone}, #{email});
+	
+		<!-- FOR AUTO GENERATED COLUMN  -->		
+      <selectKey keyProperty = "id" resultType = "int" order = "AFTER">
+         select last_insert_id() as id
+      </selectKey>   		
+   </insert>
+   
+   <!-- RESULT MAP for SELECT statements -->
+   <resultMap id = "result" type = "Student">
+      <result property = "id" column = "ID"/>
+      <result property = "name" column = "NAME"/>
+      <result property = "branch" column = "BRANCH"/>
+      <result property = "percentage" column = "PERCENTAGE"/>
+      <result property = "phone" column = "PHONE"/>
+      <result property = "email" column = "EMAIL"/>	    
+   </resultMap>
+	
+	<!-- SELECT, GET ALL -->
+   <select id = "getAll" resultMap = "result">
+      SELECT * FROM STUDENT; 
+   </select>
+    
+    <!-- SELECT, GET SPECIFIC -->
+   <select id = "getById" parameterType = "int" resultMap = "result">
+      SELECT * FROM STUDENT WHERE ID = #{id};
+   </select>
+   
+   <!-- select using stored procedure,read_record_byid, in the DB -->
+   <select id = "callById" resultMap = "result" parameterType = "Student" statementType = "CALLABLE">
+      {call read_record_ById(#{id, jdbcType = INTEGER, mode = IN})}
+   </select> 
+   
+   <!-- select dyanmic sql -->
+   <select id = "getRecByName" parameterType = "Student" resultType = "Student">
+      SELECT * FROM STUDENT		 
+		
+      <if test = "name != null">
+         WHERE name LIKE #{name}
+      </if>
+		
+   </select>
+   
+   <!-- UPDATE -->
+   <update id = "update" parameterType = "Student">
+      UPDATE STUDENT SET NAME = #{name}, 
+         BRANCH = #{branch}, 
+         PERCENTAGE = #{percentage}, 
+         PHONE = #{phone}, 
+         EMAIL = #{email} 
+      WHERE ID = #{id};
+   </update>
+   
+   <!-- delete -->
+   <delete id = "deleteById" parameterType = "int">
+      DELETE from STUDENT WHERE ID = #{id};
+   </delete>
+   
+   
+    	
+</mapper>
