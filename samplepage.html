@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Sample Page</title>
+
+ <!-- Bootstrap -->
+ <link rel="stylesheet" href="CSS/bootstrap.min.css">
+ <link rel="stylesheet" href="CSS/CustomStyles.css">
+ <link rel="stylesheet" type="text/css" href="fontawesome-free-5.12.0-web/css/all.min.css">
+ <style type="text/css">
+ body {
+     position: relative;
+ }
+ #mainNavBar {
+     top: 20px;
+     position: fixed;
+ }
+</style>
+</head>
+
+<body>
+<div class="container">
+ <div class="row">
+     <div class="col-xs-3">
+       <nav id="mainNavBar">
+                   <ul class="nav nav-pills nav-stacked nav">
+                       <li class="active"><a href="#divDesert">Desert</a></li>
+                       <li><a href="#divLighthouse">Lighthouse</a></li>
+                       <li><a href="#divTulips">Tulips</a></li>
+                       <li class="dropdown">
+                           <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                               Animals <i class="fas fa-caret-down"></i>
+                           </a>
+                           <ul class="dropdown-menu">
+                               <li>
+                                   <a href="#divJellyfish">Jellyfish</a>
+                               </li>
+                               <li>
+                                   <a href="#divPenguins">Penguins</a>
+                               </li>
+                           </ul>
+                       </li>
+                   </ul>
+               </nav>
+             </div>
+     <div class="col-xs-9">
+         <br>
+           <div id="divDesert" class="divStyle">
+               <h1>Desert</h1>
+               <img src="Images/Desert.jpg" class="img-responsive" />
+           </div>
+
+           <div id="divLighthouse" class="divStyle">
+               <h1>Lighthouse</h1>
+               <img src="Images/Lighthouse.jpg" class="img-responsive" />
+           </div>
+
+           <div id="divTulips" class="divStyle">
+               <h1>Tulips</h1>
+               <img src="Images/Tulips.jpg" class="img-responsive" />
+           </div>
+
+           <div id="divJellyfish" class="divStyle">
+               <h1>Jellyfish</h1>
+               <img src="Images/Jellyfish.jpg" class="img-responsive" />
+           </div>
+
+           <div id="divPenguins" class="divStyle">
+               <h1>Penguins</h1>
+               <img src="Images/Penguins.jpg" class="img-responsive" />
+           </div>
+     </div>
+   </div>
+ </div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+ $(document).ready(function () {
+     $('body').scrollspy({
+         target: '#mainNavBar',
+         offset: 10
+     });
+ });
+</script>
+</body>
+</html>
+
